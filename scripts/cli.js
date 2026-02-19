@@ -384,17 +384,11 @@ async function mainMenu() {
   }
 }
 
-// Check for OpenAI API key (don't log the actual key!)
-if (!process.env.OPENAI_API_KEY) {
-  console.log(chalk.red("\nError: OPENAI_API_KEY not set in .env file"));
+// Check for OpenRouter API key (don't log the actual key!)
+if (!process.env.OPENROUTER_API_KEY) {
+  console.log(chalk.red("\nError: OPENROUTER_API_KEY not set in .env file"));
   console.log(chalk.yellow("Run: cp .env.example .env && edit .env to add your key\n"));
   process.exit(1);
-}
-
-// Validate API key format without exposing it
-if (!process.env.OPENAI_API_KEY.startsWith("sk-")) {
-  console.log(chalk.yellow("\nWarning: OPENAI_API_KEY doesn't look like a valid OpenAI key"));
-  console.log(chalk.gray("Valid keys typically start with 'sk-'\n"));
 }
 
 mainMenu().catch((error) => {

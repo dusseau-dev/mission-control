@@ -44,13 +44,15 @@ export class Agent {
     this.sessionKey = this.getSessionKey(name);
     this.model = process.env.DEFAULT_MODEL || "gpt-4o";
 
-    // Initialize OpenAI client with error handling
+    // Initialize OpenAI-compatible client via OpenRouter
     try {
-      this.openai = new OpenAI();
+      this.openai = new OpenAI({
+        baseURL: "https://openrouter.ai/api/v1",
+        apiKey: process.env.OPENROUTER_API_KEY,
+      });
     } catch (error) {
-      // Don't expose API key details in error
-      logSecurityEvent("OPENAI_INIT_FAILED", { agent: name });
-      throw new Error("Failed to initialize OpenAI client. Check your API key configuration.");
+      logSecurityEvent("OPENROUTER_INIT_FAILED", { agent: name });
+      throw new Error("Failed to initialize OpenRouter client. Check your API key configuration.");
     }
 
     // Load SOUL and AGENTS.md
