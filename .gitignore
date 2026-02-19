@@ -1,0 +1,75 @@
+# ===========================================
+# SECRETS - NEVER COMMIT THESE
+# ===========================================
+
+# Environment files with secrets
+.env
+.env.local
+.env.*.local
+.env.development
+.env.production
+.env.test
+
+# Other secret files
+secrets.txt
+passwords.txt
+credentials.json
+*.key
+*.pem
+*.p12
+*.pfx
+
+# API key files
+*api_key*
+*apikey*
+*secret*
+
+# ===========================================
+# APPLICATION FILES
+# ===========================================
+
+# Dependencies
+node_modules/
+
+# Session data (contains conversation history)
+sessions/
+
+# Output files
+deliverables/
+
+# Logs (may contain sensitive info)
+logs/
+*.log
+
+# ===========================================
+# SYSTEM FILES
+# ===========================================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Linux
+*~
+
+# ===========================================
+# CONVEX
+# ===========================================
+
+convex/_generated/
+
+# ===========================================
+# EDITOR/IDE
+# ===========================================
+
+.idea/
+.vscode/
+*.swp
+*.swo
